@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Roadmap Generator — SkillForge AI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+     <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <nav class="sf-navbar navbar navbar-expand-lg fixed-top" id="sfNavbar">
+        <div class="container">
+            <a class="sf-brand" href="index.html"><div class="brand-icon"><i class="fas fa-bolt"></i></div><div class="brand-text">Skill<span>Forge</span></div></a>
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#sfNavCollapse"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="sfNavCollapse">
+                <ul class="navbar-nav ms-auto align-items-center gap-1">
+                    <li class="nav-item"><a class="nav-link sf-nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link sf-nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link sf-nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link sf-nav-link active" href="roadmap.html">Roadmap</a></li>
+                    <li class="nav-item"><a class="nav-link sf-nav-link" href="dashboard.html">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link sf-nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item ms-lg-2"><a class="nav-link sf-nav-cta" href="dashboard.html">Get Started <i class="fas fa-arrow-right ms-1"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-banner">
+        <div class="grid-bg"></div>
+        <div class="particle-field"></div>
+        <div class="container">
+            <div class="page-breadcrumb"><a href="index.html">Home</a> <i class="fas fa-chevron-right" style="font-size:10px;"></i> Roadmap Generator</div>
+            <h1>AI Roadmap <span class="gradient-text">Generator</span></h1>
+            <p>Enter any skill and our AI will create a personalized learning roadmap from beginner to advanced.</p>
+        </div>
+    </section>
+
+    <!-- ROADMAP GENERATOR -->
+    <section class="sf-section">
+        <div class="container">
+            <!-- Input Area -->
+            <div class="roadmap-input-area reveal">
+                <h3 style="font-family:var(--font-heading);font-weight:700;margin-bottom:8px;">What do you want to learn?</h3>
+                <p style="color:var(--text-secondary);margin-bottom:30px;">Type a skill or technology name and let AI generate your path.</p>
+                <div class="roadmap-search">
+                    <input type="text" id="skillInput" placeholder="e.g. React, Python, Machine Learning, UI/UX..." autofocus>
+                    <button class="sf-btn sf-btn-primary" id="generateBtn" onclick="generateRoadmap()">
+                        <i class="fas fa-wand-magic-sparkles"></i> Generate
+                    </button>
+                </div>
+                <div class="quick-tags">
+                    <span class="quick-tag" onclick="quickSelect('React')">⚛️ React</span>
+                    <span class="quick-tag" onclick="quickSelect('Python')">🐍 Python</span>
+                    <span class="quick-tag" onclick="quickSelect('Machine Learning')">🧠 Machine Learning</span>
+                    <span class="quick-tag" onclick="quickSelect('UI/UX Design')">🎨 UI/UX Design</span>
+                    <span class="quick-tag" onclick="quickSelect('Data Science')">📊 Data Science</span>
+                    <span class="quick-tag" onclick="quickSelect('JavaScript')">🟨 JavaScript</span>
+                    <span class="quick-tag" onclick="quickSelect('DevOps')">🔧 DevOps</span>
+                    <span class="quick-tag" onclick="quickSelect('Cybersecurity')">🔐 Cybersecurity</span>
+                </div>
+            </div>
+
+            <!-- Loading -->
+            <div class="roadmap-loading" id="roadmapLoading">
+                <div class="loading-brain">🧠</div>
+                <p style="color:var(--text-secondary);margin-top:15px;font-family:var(--font-heading);">AI is generating your roadmap...</p>
+                <div class="loading-dots"><span></span><span></span><span></span></div>
+            </div>
+
+            <!-- Output -->
+            <div class="roadmap-output mt-5" id="roadmapOutput"></div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="sf-footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6"><div class="footer-brand"><a class="sf-brand" href="index.html" style="font-size:22px;"><div class="brand-icon" style="width:32px;height:32px;font-size:16px;"><i class="fas fa-bolt"></i></div><div class="brand-text">Skill<span>Forge</span></div></a><p>AI-powered learning paths for everyone.</p><div class="footer-social"><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-github"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-discord"></i></a></div></div></div>
+                <div class="col-lg-2 col-md-6 col-6"><h6>Platform</h6><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="roadmap.html">Roadmap</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+                <div class="col-lg-2 col-md-6 col-6"><h6>Resources</h6><ul class="footer-links"><li><a href="#">Blog</a></li><li><a href="#">Docs</a></li><li><a href="#">Community</a></li></ul></div>
+                <div class="col-lg-4 col-md-6"><h6>Stay Updated</h6><p style="font-size:14px;color:var(--text-muted);margin-bottom:15px;">Get the latest updates.</p><div class="footer-newsletter"><input type="email" placeholder="Enter your email"><button class="sf-btn sf-btn-primary sf-btn-sm w-100 justify-content-center" style="border:none;">Subscribe <i class="fas fa-paper-plane ms-2"></i></button></div></div>
+            </div>
+            <div class="footer-bottom"><p>© 2025 SkillForge AI. All rights reserved.</p></div>
+        </div>
+    </footer>
+    <button class="scroll-top" id="scrollTopBtn"><i class="fas fa-arrow-up"></i></button>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+    /* ============ ROADMAP DATA ============ */
+    const roadmapData = {
+        'react': {
+            title: '⚛️ React.js',
+            beginner: ['HTML & CSS Fundamentals', 'JavaScript ES6+', 'JSX Syntax', 'Components & Props', 'State Management Basics', 'Event Handling', 'Conditional Rendering', 'Lists & Keys'],
+            intermediate: ['React Hooks (useState, useEffect)', 'Context API', 'React Router', 'API Integration (Fetch/Axios)', 'Custom Hooks', 'Performance Optimization', 'Form Handling', 'Error Boundaries'],
+            advanced: ['Redux / Zustand', 'Server-Side Rendering (Next.js)', 'TypeScript with React', 'Testing (Jest, React Testing Library)', 'Micro-Frontends', 'CI/CD Deployment', 'Design Patterns', 'GraphQL Integration']
+        },
+        'python': {
+            title: '🐍 Python',
+            beginner: ['Variables & Data Types', 'Control Flow (if/else, loops)', 'Functions & Modules', 'String Manipulation', 'Lists, Tuples, Dictionaries', 'File I/O', 'Error Handling', 'Basic OOP'],
+            intermediate: ['Advanced OOP', 'Decorators & Generators', 'Regular Expressions', 'Virtual Environments', 'Working with APIs', 'Database (SQLite/PostgreSQL)', 'Unit Testing', 'Package Management (pip)'],
+            advanced: ['Async Programming (asyncio)', 'Web Frameworks (Django/Flask)', 'Data Science (NumPy, Pandas)', 'Machine Learning (scikit-learn)', 'Web Scraping', 'Microservices', 'Docker + Deployment', 'Contributing to Open Source']
+        },
+        'machine learning': {
+            title: '🧠 Machine Learning',
+            beginner: ['Python Fundamentals', 'Statistics & Probability', 'Linear Algebra Basics', 'NumPy & Pandas', 'Data Visualization (Matplotlib)', 'Data Cleaning', 'Supervised vs Unsupervised', 'Linear Regression'],
+            intermediate: ['Classification Algorithms', 'Decision Trees & Random Forests', 'SVM & KNN', 'Feature Engineering', 'Model Evaluation Metrics', 'Cross-Validation', 'Dimensionality Reduction (PCA)', 'Ensemble Methods'],
+            advanced: ['Deep Learning (Neural Networks)', 'CNNs for Computer Vision', 'RNNs & LSTMs for NLP', 'Transfer Learning', 'GANs', 'Reinforcement Learning', 'Model Deployment (Flask/FastAPI)', 'MLOps & Pipeline Automation']
+        },
+        'javascript': {
+            title: '🟨 JavaScript',
+            beginner: ['Variables (let, const, var)', 'Data Types & Operators', 'Functions & Scope', 'Arrays & Objects', 'DOM Manipulation', 'Events & Event Listeners', 'Loops & Iterations', 'Basic Debugging'],
+            intermediate: ['ES6+ Features', 'Closures & Prototypes', 'Async/Await & Promises', 'Fetch API', 'Error Handling', 'Modules (import/export)', 'Local Storage', 'Regular Expressions'],
+            advanced: ['Design Patterns', 'TypeScript', 'Node.js & Express', 'Testing (Jest/Mocha)', 'WebSockets', 'Service Workers & PWAs', 'Performance Optimization', 'Build Tools (Webpack/Vite)']
+        },
+        'ui/ux design': {
+            title: '🎨 UI/UX Design',
+            beginner: ['Design Thinking Process', 'Color Theory & Typography', 'Layout & Composition', 'Figma Basics', 'Wireframing', 'User Personas', 'Information Architecture', 'Visual Hierarchy'],
+            intermediate: ['High-Fidelity Mockups', 'Design Systems', 'Prototyping & Interactions', 'Usability Testing', 'Accessibility (WCAG)', 'Responsive Design', 'Icon Design', 'Micro-interactions'],
+            advanced: ['Motion Design', 'Design Tokens', 'Advanced Figma (Auto Layout, Variables)', 'User Research Methods', 'A/B Testing', 'Design Leadership', 'Portfolio Building', 'Design for AI Products']
+        },
+        'data science': {
+            title: '📊 Data Science',
+            beginner: ['Python Basics', 'Statistics Fundamentals', 'NumPy & Pandas', 'Data Visualization', 'Data Cleaning', 'Exploratory Data Analysis', 'SQL Basics', 'Jupyter Notebooks'],
+            intermediate: ['Statistical Testing', 'Feature Engineering', 'Regression Analysis', 'Classification Models', 'Clustering Algorithms', 'Time Series Analysis', 'Advanced SQL', 'Data Storytelling'],
+            advanced: ['Big Data (Spark)', 'Deep Learning for Data', 'NLP & Text Analytics', 'Recommendation Systems', 'A/B Testing at Scale', 'Data Engineering Pipelines', 'Cloud Analytics (AWS/GCP)', 'MLOps']
+        },
+        'devops': {
+            title: '🔧 DevOps',
+            beginner: ['Linux Fundamentals', 'Bash Scripting', 'Git & GitHub', 'Networking Basics', 'SSH & Security', 'Web Server Basics (Nginx)', 'Package Management', 'Process Management'],
+            intermediate: ['Docker & Containers', 'Docker Compose', 'CI/CD (GitHub Actions, Jenkins)', 'Infrastructure as Code (Terraform)', 'Configuration Management (Ansible)', 'Monitoring (Prometheus, Grafana)', 'Log Management', 'Cloud Basics (AWS)'],
+            advanced: ['Kubernetes Orchestration', 'Helm Charts', 'Service Mesh (Istio)', 'GitOps (ArgoCD)', 'Multi-Cloud Architecture', 'Security Scanning (SAST/DAST)', 'Chaos Engineering', 'SRE Practices']
+        },
+        'cybersecurity': {
+            title: '🔐 Cybersecurity',
+            beginner: ['Networking Fundamentals', 'Operating System Security', 'CIA Triad', 'Firewalls & VPNs', 'Malware Types', 'Password Security', 'Social Engineering', 'Security Policies'],
+            intermediate: ['Penetration Testing Basics', 'Vulnerability Assessment', 'OWASP Top 10', 'Cryptography', 'IDS/IPS Systems', 'Web Application Security', 'Network Analysis (Wireshark)', 'Incident Response'],
+            advanced: ['Advanced Pen Testing (Metasploit)', 'Reverse Engineering', 'Threat Intelligence', 'SIEM Tools', 'Cloud Security', 'Zero Trust Architecture', 'Digital Forensics', 'Red Team / Blue Team Operations']
+        }
+    };
+
+    // Default fallback
+    const defaultRoadmap = {
+        beginner: ['Core Fundamentals', 'Basic Concepts & Terminology', 'Hands-on Tutorials', 'Simple Projects', 'Documentation Study', 'Community Forums'],
+        intermediate: ['Advanced Concepts', 'Real-world Projects', 'Best Practices', 'Problem Solving', 'Collaboration Skills', 'Code Reviews'],
+        advanced: ['Expert Techniques', 'System Design', 'Open Source Contribution', 'Mentoring Others', 'Industry Certifications', 'Building Portfolio']
+    };
+
+    function quickSelect(skill) {
+        document.getElementById('skillInput').value = skill;
+        generateRoadmap();
+    }
+
+    function generateRoadmap() {
+        const input = document.getElementById('skillInput').value.trim();
+        if (!input) {
+            document.getElementById('skillInput').focus();
+            document.getElementById('skillInput').style.borderColor = 'var(--red)';
+            setTimeout(() => document.getElementById('skillInput').style.borderColor = '', 1500);
+            return;
+        }
+
+        const output = document.getElementById('roadmapOutput');
+        const loading = document.getElementById('roadmapLoading');
+
+        output.classList.remove('show');
+        output.innerHTML = '';
+        loading.classList.add('show');
+
+        setTimeout(() => {
+            loading.classList.remove('show');
+
+            const key = input.toLowerCase();
+            const data = roadmapData[key] || null;
+            const title = data ? data.title : `🎯 ${input}`;
+            const beginner = data ? data.beginner : defaultRoadmap.beginner;
+            const intermediate = data ? data.intermediate : defaultRoadmap.intermediate;
+            const advanced = data ? data.advanced : defaultRoadmap.advanced;
+
+            let html = `<h3 class="roadmap-skill-title">Learning Roadmap: <span class="gradient-text">${title}</span></h3>`;
+
+            html += buildLevel('🟢 Beginner', 'Start your journey', beginner, 'level-beginner', 'tag-cyan', '4-6 Weeks');
+            html += buildLevel('🟠 Intermediate', 'Build real skills', intermediate, 'level-intermediate', 'tag-orange', '6-10 Weeks');
+            html += buildLevel('🟣 Advanced', 'Become an expert', advanced, 'level-advanced', 'tag-purple', '8-12 Weeks');
+
+            html += `<div class="text-center mt-4">
+                <a href="dashboard.html" class="sf-btn sf-btn-cyan">
+                    <i class="fas fa-chart-line"></i> Track My Progress
+                </a>
+            </div>`;
+
+            output.innerHTML = html;
+            output.classList.add('show');
+            output.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 2000);
+    }
+
+    function buildLevel(title, subtitle, topics, levelClass, tagClass, duration) {
+        let chips = topics.map(t => `<span class="roadmap-chip">${t}</span>`).join('');
+        return `
+        <div class="roadmap-level ${levelClass}">
+            <h4>${title} <span class="duration-badge ${tagClass}"><i class="fas fa-clock"></i> ${duration}</span></h4>
+            <p style="color:var(--text-secondary);font-size:14px;margin-bottom:15px;">${subtitle} — master these core topics:</p>
+            <div class="roadmap-topics">${chips}</div>
+        </div>`;
+    }
+
+    // Enter key
+    document.getElementById('skillInput').addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') generateRoadmap();
+    });
+    </script>
+</body>
+</html>
