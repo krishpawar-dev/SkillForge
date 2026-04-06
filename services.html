@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,15 +8,28 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="img/icon.png">
+    <script>
+        // Prevent flash of wrong theme
+        (function () {
+            var t = localStorage.getItem('sf-theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', t);
+        })();
+    </script>
 </head>
+
 <body>
     <div class="cursor-dot" id="cursorDot"></div>
     <div class="cursor-ring" id="cursorRing"></div>
 
     <nav class="sf-navbar navbar navbar-expand-lg fixed-top" id="sfNavbar">
         <div class="container">
-            <a class="sf-brand" href="index.html"><div class="brand-icon"><i class="fas fa-bolt"></i></div><div class="brand-text">Skill<span>Forge</span></div></a>
-            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#sfNavCollapse"><span class="navbar-toggler-icon"></span></button>
+            <a class="sf-brand" href="index.html">
+                <div class="brand-icon"><i class="fas fa-bolt"></i></div>
+                <div class="brand-text">Skill<span>Forge</span></div>
+            </a>
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#sfNavCollapse"><span
+                    class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="sfNavCollapse">
                 <ul class="navbar-nav ms-auto align-items-center gap-1">
                     <li class="nav-item"><a class="nav-link sf-nav-link" href="index.html">Home</a></li>
@@ -24,7 +38,16 @@
                     <li class="nav-item"><a class="nav-link sf-nav-link" href="roadmap.html">Roadmap</a></li>
                     <li class="nav-item"><a class="nav-link sf-nav-link" href="dashboard.html">Dashboard</a></li>
                     <li class="nav-item"><a class="nav-link sf-nav-link" href="contact.html">Contact</a></li>
-                    <li class="nav-item ms-lg-2"><a class="nav-link sf-nav-cta" href="dashboard.html">Get Started <i class="fas fa-arrow-right ms-1"></i></a></li>
+                    <li class="nav-item ms-lg-2"><a class="nav-link sf-nav-cta" href="dashboard.html">Get Started <i
+                                class="fas fa-arrow-right ms-1"></i></a></li>
+                    <li class="nav-item ms-lg-2 d-flex align-items-center">
+                        <div class="theme-toggle-wrap">
+                            <span class="theme-icon-label" id="themeIconLabel"><i class="fas fa-moon"></i></span>
+                            <div class="theme-toggle" id="themeToggle" title="Toggle theme">
+                                <div class="theme-toggle-knob"></div>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -34,13 +57,13 @@
         <div class="grid-bg"></div>
         <div class="particle-field"></div>
         <div class="container">
-            <div class="page-breadcrumb"><a href="index.html">Home</a> <i class="fas fa-chevron-right" style="font-size:10px;"></i> Services</div>
+            <div class="page-breadcrumb"><a href="index.html">Home</a> <i class="fas fa-chevron-right"
+                    style="font-size:10px;"></i> Services</div>
             <h1>Our <span class="gradient-text">Services</span></h1>
             <p>Industry-focused learning tracks designed to make you job-ready in record time.</p>
         </div>
     </section>
 
-    <!-- SERVICES GRID -->
     <section class="sf-section">
         <div class="container">
             <div class="row g-4">
@@ -48,7 +71,8 @@
                     <div class="service-card-large">
                         <span class="service-emoji">💻</span>
                         <h4>Web Development</h4>
-                        <p>Master full-stack web development from HTML basics to building production-ready apps with React, Node.js, and databases.</p>
+                        <p>Master full-stack web development from HTML basics to building production-ready apps with
+                            React, Node.js, and databases.</p>
                         <div class="service-tags">
                             <span class="service-tag">HTML/CSS</span>
                             <span class="service-tag">JavaScript</span>
@@ -62,7 +86,8 @@
                     <div class="service-card-large">
                         <span class="service-emoji">🧠</span>
                         <h4>AI & Machine Learning</h4>
-                        <p>Dive into artificial intelligence — from neural networks and NLP to computer vision and building real-world AI applications.</p>
+                        <p>Dive into artificial intelligence — from neural networks and NLP to computer vision and
+                            building real-world AI applications.</p>
                         <div class="service-tags">
                             <span class="service-tag">Python</span>
                             <span class="service-tag">TensorFlow</span>
@@ -76,7 +101,8 @@
                     <div class="service-card-large">
                         <span class="service-emoji">🎨</span>
                         <h4>UI/UX Design</h4>
-                        <p>Learn design thinking, wireframing, prototyping, and user research to create beautiful, user-centered digital experiences.</p>
+                        <p>Learn design thinking, wireframing, prototyping, and user research to create beautiful,
+                            user-centered digital experiences.</p>
                         <div class="service-tags">
                             <span class="service-tag">Figma</span>
                             <span class="service-tag">Prototyping</span>
@@ -90,7 +116,8 @@
                     <div class="service-card-large">
                         <span class="service-emoji">📊</span>
                         <h4>Data Science</h4>
-                        <p>Analyze data, build predictive models, and extract insights using Python, SQL, Pandas, and advanced statistical methods.</p>
+                        <p>Analyze data, build predictive models, and extract insights using Python, SQL, Pandas, and
+                            advanced statistical methods.</p>
                         <div class="service-tags">
                             <span class="service-tag">Python</span>
                             <span class="service-tag">SQL</span>
@@ -104,7 +131,8 @@
                     <div class="service-card-large">
                         <span class="service-emoji">☁️</span>
                         <h4>Cloud & DevOps</h4>
-                        <p>Deploy, manage, and scale applications on AWS, Azure, or GCP. Master CI/CD pipelines, Docker, and Kubernetes.</p>
+                        <p>Deploy, manage, and scale applications on AWS, Azure, or GCP. Master CI/CD pipelines, Docker,
+                            and Kubernetes.</p>
                         <div class="service-tags">
                             <span class="service-tag">AWS</span>
                             <span class="service-tag">Docker</span>
@@ -118,7 +146,8 @@
                     <div class="service-card-large">
                         <span class="service-emoji">🔐</span>
                         <h4>Cybersecurity</h4>
-                        <p>Protect systems and networks. Learn ethical hacking, penetration testing, cryptography, and security architecture.</p>
+                        <p>Protect systems and networks. Learn ethical hacking, penetration testing, cryptography, and
+                            security architecture.</p>
                         <div class="service-tags">
                             <span class="service-tag">Pen Testing</span>
                             <span class="service-tag">Cryptography</span>
@@ -134,51 +163,100 @@
 
     <hr class="glow-divider">
 
-    <!-- HOW IT WORKS -->
     <section class="sf-section sf-section-alt">
         <div class="container">
             <div class="row align-items-center g-5">
                 <div class="col-lg-6 reveal-left">
                     <div class="section-badge"><i class="fas fa-cogs"></i> How It Works</div>
                     <h2 class="section-title">Your Journey in <span class="gradient-text">4 Steps</span></h2>
-                    <p class="section-desc mb-4">From choosing a skill to getting certified — our AI guides you every step of the way.</p>
+                    <p class="section-desc mb-4">From choosing a skill to getting certified — our AI guides you every
+                        step of the way.</p>
                 </div>
                 <div class="col-lg-6 reveal-right">
                     <div class="process-step">
                         <div class="process-number icon-purple">01</div>
-                        <div><h5>Choose Your Skill</h5><p>Select from 200+ learning paths or type any skill into our AI engine.</p></div>
+                        <div>
+                            <h5>Choose Your Skill</h5>
+                            <p>Select from 200+ learning paths or type any skill into our AI engine.</p>
+                        </div>
                     </div>
                     <div class="process-step">
                         <div class="process-number icon-cyan">02</div>
-                        <div><h5>Get Your Roadmap</h5><p>Our AI generates a personalized roadmap: Beginner → Intermediate → Advanced.</p></div>
+                        <div>
+                            <h5>Get Your Roadmap</h5>
+                            <p>Our AI generates a personalized roadmap: Beginner → Intermediate → Advanced.</p>
+                        </div>
                     </div>
                     <div class="process-step">
                         <div class="process-number icon-orange">03</div>
-                        <div><h5>Learn & Build</h5><p>Follow interactive modules, build projects, and track your progress in real-time.</p></div>
+                        <div>
+                            <h5>Learn & Build</h5>
+                            <p>Follow interactive modules, build projects, and track your progress in real-time.</p>
+                        </div>
                     </div>
                     <div class="process-step">
                         <div class="process-number icon-magenta">04</div>
-                        <div><h5>Get Certified</h5><p>Complete assessments and earn industry-recognized certificates to boost your career.</p></div>
+                        <div>
+                            <h5>Get Certified</h5>
+                            <p>Complete assessments and earn industry-recognized certificates to boost your career.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="sf-footer">
         <div class="container">
             <div class="row g-4">
-                <div class="col-lg-4 col-md-6"><div class="footer-brand"><a class="sf-brand" href="index.html" style="font-size:22px;"><div class="brand-icon" style="width:32px;height:32px;font-size:16px;"><i class="fas fa-bolt"></i></div><div class="brand-text">Skill<span>Forge</span></div></a><p>AI-powered learning platform for tech professionals.</p><div class="footer-social"><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-github"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-discord"></i></a></div></div></div>
-                <div class="col-lg-2 col-md-6 col-6"><h6>Platform</h6><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="roadmap.html">Roadmap</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-                <div class="col-lg-2 col-md-6 col-6"><h6>Resources</h6><ul class="footer-links"><li><a href="#">Blog</a></li><li><a href="#">Docs</a></li><li><a href="#">Community</a></li><li><a href="contact.html">Support</a></li></ul></div>
-                <div class="col-lg-4 col-md-6"><h6>Stay Updated</h6><p style="font-size:14px;color:var(--text-muted);margin-bottom:15px;">Get the latest learning tips.</p><div class="footer-newsletter"><input type="email" placeholder="Enter your email"><button class="sf-btn sf-btn-primary sf-btn-sm w-100 justify-content-center" style="border:none;">Subscribe <i class="fas fa-paper-plane ms-2"></i></button></div></div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-brand"><a class="sf-brand" href="index.html" style="font-size:22px;">
+                            <div class="brand-icon" style="width:32px;height:32px;font-size:16px;"><i
+                                    class="fas fa-bolt"></i></div>
+                            <div class="brand-text">Skill<span>Forge</span></div>
+                        </a>
+                        <p>AI-powered learning platform for tech professionals.</p>
+                        <div class="footer-social"><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i
+                                    class="fab fa-github"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a><a
+                                href="#"><i class="fab fa-discord"></i></a></div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 col-6">
+                    <h6>Platform</h6>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="roadmap.html">Roadmap</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 col-6">
+                    <h6>Resources</h6>
+                    <ul class="footer-links">
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Docs</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="contact.html">Support</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h6>Stay Updated</h6>
+                    <p style="font-size:14px;color:var(--text-muted);margin-bottom:15px;">Get the latest learning tips.
+                    </p>
+                    <div class="footer-newsletter"><input type="email" placeholder="Enter your email"><button
+                            class="sf-btn sf-btn-primary sf-btn-sm w-100 justify-content-center"
+                            style="border:none;">Subscribe <i class="fas fa-paper-plane ms-2"></i></button></div>
+                </div>
             </div>
-            <div class="footer-bottom"><p>© 2025 SkillForge AI. All rights reserved.</p></div>
+            <div class="footer-bottom">
+                <p>© 2025 SkillForge AI. All rights reserved.</p>
+            </div>
         </div>
     </footer>
     <button class="scroll-top" id="scrollTopBtn"><i class="fas fa-arrow-up"></i></button>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>

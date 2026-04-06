@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +8,16 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="img/icon.png">
+    <script>
+        (function () {
+            var t = localStorage.getItem('sf-theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', t);
+        })();
+    </script>
 </head>
+
 <body>
-    <!-- PRELOADER -->
     <div class="preloader" id="preloader">
         <div class="dna-loader">
             <span></span><span></span><span></span><span></span>
@@ -22,11 +30,9 @@
         </div>
     </div>
 
-    <!-- CUSTOM CURSOR -->
     <div class="cursor-dot" id="cursorDot"></div>
     <div class="cursor-ring" id="cursorRing"></div>
 
-    <!-- NAVBAR -->
     <nav class="sf-navbar navbar navbar-expand-lg fixed-top" id="sfNavbar">
         <div class="container">
             <a class="sf-brand" href="index.html">
@@ -49,12 +55,19 @@
                             Get Started <i class="fas fa-arrow-right ms-1"></i>
                         </a>
                     </li>
+                    <li class="nav-item ms-lg-2 d-flex align-items-center">
+                        <div class="theme-toggle-wrap">
+                            <span class="theme-icon-label" id="themeIconLabel"><i class="fas fa-moon"></i></span>
+                            <div class="theme-toggle" id="themeToggle" title="Toggle theme">
+                                <div class="theme-toggle-knob"></div>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- HERO -->
     <section class="home-hero">
         <div class="hero-grid"></div>
         <div class="particle-field"></div>
@@ -71,7 +84,8 @@
                         <span class="line-3">Powered Skills</span>
                     </h1>
                     <p class="hero-desc reveal">
-                        Master in-demand skills with personalized AI roadmaps, interactive learning paths, and real-time progress tracking. Your career transformation starts here.
+                        Master in-demand skills with personalized AI roadmaps, interactive learning paths, and real-time
+                        progress tracking. Your career transformation starts here.
                     </p>
                     <div class="hero-buttons reveal">
                         <a href="roadmap.html" class="sf-btn sf-btn-primary">
@@ -104,14 +118,25 @@
                                     <div class="terminal-dots">
                                         <span></span><span></span><span></span>
                                     </div>
-                                    <div class="terminal-line"><span class="t-comment">// SkillForge AI Engine</span></div>
-                                    <div class="terminal-line"><span class="t-purple">const</span> <span class="t-blue">learner</span> <span class="t-white">= {</span></div>
-                                    <div class="terminal-line">&nbsp;&nbsp;<span class="t-green">name</span><span class="t-white">:</span> <span class="t-yellow">"You"</span><span class="t-white">,</span></div>
-                                    <div class="terminal-line">&nbsp;&nbsp;<span class="t-green">goal</span><span class="t-white">:</span> <span class="t-yellow">"Full Stack + AI"</span><span class="t-white">,</span></div>
-                                    <div class="terminal-line">&nbsp;&nbsp;<span class="t-green">level</span><span class="t-white">:</span> <span class="t-orange">Infinity</span><span class="t-white">,</span></div>
+                                    <div class="terminal-line"><span class="t-comment">// SkillForge AI Engine</span>
+                                    </div>
+                                    <div class="terminal-line"><span class="t-purple">const</span> <span
+                                            class="t-blue">learner</span> <span class="t-white">= {</span></div>
+                                    <div class="terminal-line">&nbsp;&nbsp;<span class="t-green">name</span><span
+                                            class="t-white">:</span> <span class="t-yellow">"You"</span><span
+                                            class="t-white">,</span></div>
+                                    <div class="terminal-line">&nbsp;&nbsp;<span class="t-green">goal</span><span
+                                            class="t-white">:</span> <span class="t-yellow">"Full Stack +
+                                            AI"</span><span class="t-white">,</span></div>
+                                    <div class="terminal-line">&nbsp;&nbsp;<span class="t-green">level</span><span
+                                            class="t-white">:</span> <span class="t-orange">Infinity</span><span
+                                            class="t-white">,</span></div>
                                     <div class="terminal-line"><span class="t-white">};</span></div>
                                     <div class="terminal-line"><br></div>
-                                    <div class="terminal-line"><span class="t-purple">await</span> <span class="t-blue">skillforge</span><span class="t-white">.</span><span class="t-cyan">generate</span><span class="t-white">(</span><span class="t-yellow">"🚀"</span><span class="t-white">);</span></div>
+                                    <div class="terminal-line"><span class="t-purple">await</span> <span
+                                            class="t-blue">skillforge</span><span class="t-white">.</span><span
+                                            class="t-cyan">generate</span><span class="t-white">(</span><span
+                                            class="t-yellow">"🚀"</span><span class="t-white">);</span></div>
                                 </div>
                             </div>
 
@@ -143,7 +168,6 @@
         </div>
     </section>
 
-    <!-- MARQUEE -->
     <div class="marquee-strip">
         <div class="marquee-track">
             <span class="marquee-item">Web Development <span class="dot"></span></span>
@@ -165,13 +189,13 @@
         </div>
     </div>
 
-    <!-- SKILLS PREVIEW -->
     <section class="sf-section">
         <div class="container">
             <div class="text-center mb-5 reveal">
                 <div class="section-badge"><i class="fas fa-sparkles"></i> Popular Skills</div>
                 <h2 class="section-title">Master In-Demand <span class="gradient-text">Skills</span></h2>
-                <p class="section-desc mx-auto">Choose from 200+ curated learning paths designed by industry experts and powered by AI.</p>
+                <p class="section-desc mx-auto">Choose from 200+ curated learning paths designed by industry experts and
+                    powered by AI.</p>
             </div>
             <div class="row g-4">
                 <div class="col-lg-2 col-md-4 col-6 reveal delay-1">
@@ -222,55 +246,67 @@
 
     <hr class="glow-divider">
 
-    <!-- FEATURES -->
     <section class="sf-section sf-section-alt">
         <div class="container">
             <div class="text-center mb-5 reveal">
                 <div class="section-badge"><i class="fas fa-gem"></i> Why SkillForge</div>
                 <h2 class="section-title">Features That <span class="gradient-text">Empower</span></h2>
-                <p class="section-desc mx-auto">Everything you need to go from beginner to expert, all in one intelligent platform.</p>
+                <p class="section-desc mx-auto">Everything you need to go from beginner to expert, all in one
+                    intelligent platform.</p>
             </div>
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6 reveal delay-1">
                     <div class="sf-card">
                         <div class="sf-icon-box icon-purple"><i class="fas fa-route"></i></div>
-                        <h5 style="font-family:var(--font-heading);font-weight:600;margin-bottom:10px;">AI Roadmap Generator</h5>
-                        <p style="color:var(--text-secondary);font-size:14px;">Input any skill and get a personalized learning roadmap from beginner to advanced — powered by AI.</p>
+                        <h5 style="font-family:var(--font-heading);font-weight:600;margin-bottom:10px;">AI Roadmap
+                            Generator</h5>
+                        <p style="color:var(--text-secondary);font-size:14px;">Input any skill and get a personalized
+                            learning roadmap from beginner to advanced — powered by AI.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 reveal delay-2">
                     <div class="sf-card">
                         <div class="sf-icon-box icon-cyan"><i class="fas fa-chart-pie"></i></div>
-                        <h5 style="font-family:var(--font-heading);font-weight:600;margin-bottom:10px;">Progress Dashboard</h5>
-                        <p style="color:var(--text-secondary);font-size:14px;">Track your learning journey with beautiful visual dashboards, progress bars, and achievement milestones.</p>
+                        <h5 style="font-family:var(--font-heading);font-weight:600;margin-bottom:10px;">Progress
+                            Dashboard</h5>
+                        <p style="color:var(--text-secondary);font-size:14px;">Track your learning journey with
+                            beautiful visual dashboards, progress bars, and achievement milestones.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 reveal delay-3">
                     <div class="sf-card">
                         <div class="sf-icon-box icon-orange"><i class="fas fa-users-gear"></i></div>
-                        <h5 style="font-family:var(--font-heading);font-weight:600;margin-bottom:10px;">Expert Community</h5>
-                        <p style="color:var(--text-secondary);font-size:14px;">Connect with mentors, join study groups, and collaborate on projects with learners worldwide.</p>
+                        <h5 style="font-family:var(--font-heading);font-weight:600;margin-bottom:10px;">Expert Community
+                        </h5>
+                        <p style="color:var(--text-secondary);font-size:14px;">Connect with mentors, join study groups,
+                            and collaborate on projects with learners worldwide.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 reveal delay-4">
                     <div class="sf-card">
                         <div class="sf-icon-box icon-magenta"><i class="fas fa-laptop-code"></i></div>
-                        <h5 style="font-family:var(--font-heading);font-weight:600;margin-bottom:10px;">Hands-on Projects</h5>
-                        <p style="color:var(--text-secondary);font-size:14px;">Build real-world projects with guided instructions, code reviews, and portfolio-ready outputs.</p>
+                        <h5 style="font-family:var(--font-heading);font-weight:600;margin-bottom:10px;">Hands-on
+                            Projects</h5>
+                        <p style="color:var(--text-secondary);font-size:14px;">Build real-world projects with guided
+                            instructions, code reviews, and portfolio-ready outputs.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 reveal delay-5">
                     <div class="sf-card">
                         <div class="sf-icon-box icon-yellow"><i class="fas fa-certificate"></i></div>
-                        <h5 style="font-family:var(--font-heading);font-weight:600;margin-bottom:10px;">Verified Certificates</h5>
-                        <p style="color:var(--text-secondary);font-size:14px;">Earn industry-recognized certificates upon completion that boost your resume and LinkedIn profile.</p>
+                        <h5 style="font-family:var(--font-heading);font-weight:600;margin-bottom:10px;">Verified
+                            Certificates</h5>
+                        <p style="color:var(--text-secondary);font-size:14px;">Earn industry-recognized certificates
+                            upon completion that boost your resume and LinkedIn profile.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 reveal delay-6">
                     <div class="sf-card">
                         <div class="sf-icon-box icon-red"><i class="fas fa-clock-rotate-left"></i></div>
-                        <h5 style="font-family:var(--font-heading);font-weight:600;margin-bottom:10px;">Learn at Your Pace</h5>
-                        <p style="color:var(--text-secondary);font-size:14px;">Self-paced learning with lifetime access. Pause, rewind, and revisit any module whenever you want.</p>
+                        <h5 style="font-family:var(--font-heading);font-weight:600;margin-bottom:10px;">Learn at Your
+                            Pace</h5>
+                        <p style="color:var(--text-secondary);font-size:14px;">Self-paced learning with lifetime access.
+                            Pause, rewind, and revisit any module whenever you want.</p>
                     </div>
                 </div>
             </div>
@@ -279,13 +315,13 @@
 
     <hr class="glow-divider">
 
-    <!-- CTA -->
     <section class="sf-section">
         <div class="container reveal">
             <div class="cta-box">
                 <div class="section-badge"><i class="fas fa-rocket"></i> Get Started Free</div>
                 <h2 class="section-title">Ready to <span class="gradient-text">Forge</span> Your Skills?</h2>
-                <p class="section-desc mx-auto mb-4">Join 50,000+ learners who are already building their future with AI-powered learning paths.</p>
+                <p class="section-desc mx-auto mb-4">Join 50,000+ learners who are already building their future with
+                    AI-powered learning paths.</p>
                 <div class="d-flex gap-3 justify-content-center flex-wrap">
                     <a href="roadmap.html" class="sf-btn sf-btn-primary">
                         Start Learning <i class="fas fa-arrow-right"></i>
@@ -298,17 +334,18 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="sf-footer">
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6">
                     <div class="footer-brand">
                         <a class="sf-brand" href="index.html" style="font-size:22px;">
-                            <div class="brand-icon" style="width:32px;height:32px;font-size:16px;"><i class="fas fa-bolt"></i></div>
+                            <div class="brand-icon" style="width:32px;height:32px;font-size:16px;"><i
+                                    class="fas fa-bolt"></i></div>
                             <div class="brand-text">Skill<span>Forge</span></div>
                         </a>
-                        <p>AI-powered learning platform that helps you master in-demand skills with personalized roadmaps and real-time tracking.</p>
+                        <p>AI-powered learning platform that helps you master in-demand skills with personalized
+                            roadmaps and real-time tracking.</p>
                         <div class="footer-social">
                             <a href="#"><i class="fab fa-twitter"></i></a>
                             <a href="#"><i class="fab fa-github"></i></a>
@@ -339,25 +376,28 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <h6>Stay Updated</h6>
-                    <p style="font-size:14px;color:var(--text-muted);margin-bottom:15px;">Get the latest AI learning resources and platform updates.</p>
+                    <p style="font-size:14px;color:var(--text-muted);margin-bottom:15px;">Get the latest AI learning
+                        resources and platform updates.</p>
                     <div class="footer-newsletter">
                         <input type="email" placeholder="Enter your email">
-                        <button class="sf-btn sf-btn-primary sf-btn-sm w-100 justify-content-center" style="border:none;">
+                        <button class="sf-btn sf-btn-primary sf-btn-sm w-100 justify-content-center"
+                            style="border:none;">
                             Subscribe <i class="fas fa-paper-plane ms-2"></i>
                         </button>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2025 SkillForge AI. All rights reserved. Built with <i class="fas fa-heart" style="color:var(--primary);"></i> for learners worldwide.</p>
+                <p>© 2025 SkillForge AI. All rights reserved. Built with <i class="fas fa-heart"
+                        style="color:var(--primary);"></i> for learners worldwide.</p>
             </div>
         </div>
     </footer>
 
-    <!-- SCROLL TOP -->
     <button class="scroll-top" id="scrollTopBtn"><i class="fas fa-arrow-up"></i></button>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>

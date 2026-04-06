@@ -1,11 +1,32 @@
-/* ================================================================
-   SKILLFORGE AI — Global JavaScript
-   Handles: Preloader, Cursor, Navbar, Scroll, Reveals, Counters
-   ================================================================ */
-
 document.addEventListener('DOMContentLoaded', () => {
 
-    // ==================== PRELOADER ====================
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const themeIconLabel = document.getElementById('themeIconLabel');
+    const htmlEl = document.documentElement;
+
+    const savedTheme = localStorage.getItem('sf-theme') || 'dark';
+    htmlEl.setAttribute('data-theme', savedTheme);
+    updateThemeUI(savedTheme);
+
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+            const current = htmlEl.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+            htmlEl.setAttribute('data-theme', next);
+            localStorage.setItem('sf-theme', next);
+            updateThemeUI(next);
+        });
+    }
+
+    function updateThemeUI(theme) {
+        if (!themeIconLabel) return;
+        if (theme === 'light') {
+            themeIconLabel.innerHTML = '<i class="fas fa-sun"></i>';
+        } else {
+            themeIconLabel.innerHTML = '<i class="fas fa-moon"></i>';
+        }
+    }
+
     const preloader = document.getElementById('preloader');
     if (preloader) {
         window.addEventListener('load', () => {
@@ -13,13 +34,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 preloader.classList.add('hide');
             }, 1800);
         });
-        // Fallback: hide after 4 seconds max
         setTimeout(() => {
             preloader.classList.add('hide');
-        }, 4000);
+        }, 1000);
     }
 
-    // ==================== CUSTOM CURSOR ====================
     const cursorDot = document.getElementById('cursorDot');
     const cursorRing = document.getElementById('cursorRing');
 
@@ -34,7 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
             cursorDot.style.top = (mouseY - 4) + 'px';
         });
 
-        // Smooth ring follow
         function animateRing() {
             ringX += (mouseX - ringX) * 0.15;
             ringY += (mouseY - ringY) * 0.15;
@@ -44,7 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         animateRing();
 
-        // Hover effect on interactive elements
         const hoverElements = document.querySelectorAll(
             'a, button, .sf-btn, .sf-card, .team-card, input, textarea, .navbar-toggler'
         );
@@ -54,7 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ==================== NAVBAR SCROLL ====================
     const navbar = document.getElementById('sfNavbar');
     const scrollTopBtn = document.getElementById('scrollTopBtn');
 
@@ -65,16 +81,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Run on load
+    handleScroll();
 
-    // Scroll to top
     if (scrollTopBtn) {
         scrollTopBtn.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
 
-    // ==================== MOBILE NAV CLOSE ====================
     const navLinks = document.querySelectorAll('.sf-nav-link');
     const navCollapse = document.getElementById('sfNavCollapse');
 
@@ -87,7 +101,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ==================== SCROLL REVEAL ====================
     const revealElements = document.querySelectorAll(
         '.reveal, .reveal-left, .reveal-right, .reveal-scale'
     );
@@ -105,7 +118,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     revealElements.forEach(el => revealObserver.observe(el));
 
-    // ==================== COUNTER ANIMATION ====================
     const counters = document.querySelectorAll('.counter');
     const counterObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -134,7 +146,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     counters.forEach(c => counterObserver.observe(c));
 
-    // ==================== PROGRESS BAR ANIMATION ====================
     const progressBars = document.querySelectorAll('.sf-progress-bar');
     const progressObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -152,7 +163,6 @@ document.addEventListener('DOMContentLoaded', () => {
         progressObserver.observe(bar);
     });
 
-    // ==================== PARTICLES ============== ==========
     const particleFields = document.querySelectorAll('.particle-field');
     particleFields.forEach(field => {
         for (let i = 0; i < 25; i++) {
@@ -163,14 +173,12 @@ document.addEventListener('DOMContentLoaded', () => {
             p.style.animationDelay = (Math.random() * 6) + 's';
             p.style.animationDuration = (4 + Math.random() * 4) + 's';
 
-            // Random colors
             const colors = ['var(--primary)', 'var(--cyan)', 'var(--orange)'];
             p.style.background = colors[Math.floor(Math.random() * 3)];
             field.appendChild(p);
         }
     });
 
-    // ==================== TYPING EFFECT ====================
     const typingElements = document.querySelectorAll('.typing-text');
     typingElements.forEach(el => {
         const texts = JSON.parse(el.getAttribute('data-texts'));
